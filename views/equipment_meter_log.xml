@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View -->
+    <record id="view_equipment_meter_log_tree" model="ir.ui.view">
+        <field name="name">equipment.meter.log.list</field>
+        <field name="model">equipment.meter.log</field>
+        <field name="arch" type="xml">
+            <list string="Equipment Meter Logs">
+                <field name="equipment_id"/>
+                <field name="reading_date"/>
+                <field name="current_meter_reading"/>
+                <field name="running_hours_added"/>
+                <field name="recorded_by" widget="many2one_avatar_user"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_equipment_meter_log_form" model="ir.ui.view">
+        <field name="name">equipment.meter.log.form</field>
+        <field name="model">equipment.meter.log</field>
+        <field name="arch" type="xml">
+            <form string="Equipment Meter Log">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="equipment_id"/>
+                            <field name="current_meter_reading"/>
+                        </group>
+                        <group>
+                            <field name="reading_date"/>
+                            <field name="running_hours_added" readonly="1"/>
+                            <field name="recorded_by" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_equipment_meter_log" model="ir.actions.act_window">
+        <field name="name">Equipment Meter Logs</field>
+        <field name="res_model">equipment.meter.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Record your first equipment meter reading!
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item (Assuming it goes under Inventory) -->
+
+
+</odoo>
